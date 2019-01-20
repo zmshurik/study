@@ -13,8 +13,12 @@ module Exercise
         sum_of_ratings / needed_ratings.size
       end
 
-      def chars_count(_films, _threshold)
-        0
+      def chars_count(films, threshold)
+        films_with_appropriate_rating = films.reject { |film| film['rating_kinopoisk'].nil? }
+                                             .select { |film| film['rating_kinopoisk'].to_f >= threshold }
+        films_with_appropriate_rating.map { |film| film['name'] }
+                                     .map { |film_name| film_name.count('и') }
+                                     .reduce(&:+)
       end
     end
   end
