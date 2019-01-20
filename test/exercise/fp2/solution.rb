@@ -20,10 +20,22 @@ module Exercise
 
       # Написать свою функцию my_compact
       def my_compact
+        result = MyArray.new
+        my_each { |element| result << element unless element.nil? }
+        result
       end
 
       # Написать свою функцию my_reduce
-      def my_reduce
+      def my_reduce(initial = nil)
+        result = initial
+        my_each  do |element|
+          if element == self[0] && result.nil?
+            result = element
+            next
+          end
+          result = yield(result, element)
+        end
+        result
       end
     end
   end
