@@ -28,8 +28,8 @@ module Exercise
       # Написать свою функцию my_reduce
       def my_reduce(initial = nil)
         result = initial
-        my_each  do |element|
-          if element == self[0] && result.nil?
+        my_each do |element|
+          if element == first && result.nil?
             result = element
             next
           end
