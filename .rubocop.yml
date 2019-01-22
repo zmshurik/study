@@ -49,3 +49,6 @@ Style/AsciiComments:
 
 Style/For:
   Enabled: false
+
+Style/SingleLineBlockParams: 
+  Enabled: false
